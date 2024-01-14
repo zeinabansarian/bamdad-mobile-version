@@ -384,6 +384,8 @@ table {
     font-size: 14px;
   }
   .openMenu > ul > li .openUnderMenu {
+    position: relative;
+    z-index: 100;
     transform: scaleY(1) !important;
     height: 100% !important;
     display: flex !important;
@@ -398,7 +400,51 @@ table {
     -moz-column-gap: 17px;
          column-gap: 17px;
   }
-  .red {
-    color: red !important;
+  .banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner img {
+    width: 100%;
+  }
+  .banner .bannerTitle {
+    position: absolute;
+    z-index: 1;
+  }
+  .banner .bannerTitle h1 {
+    font-family: "Anjoman";
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+  }
+  .productCat .section2 {
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+  }
+  .productCat .section2 .catItem {
+    margin-top: 50px;
+    position: relative;
+  }
+  .productCat .section2 .catItem a {
+    text-decoration: none;
+  }
+  .productCat .section2 .catItem a .catTitle {
+    padding: 40px 54px;
+    position: absolute;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    bottom: 0;
+    z-index: 10;
+    background: rgb(249, 249, 249);
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0) 9%, rgba(0, 0, 0, 0.6306897759) 100%);
+  }
+  .productCat .section2 .catItem a .catTitle h3 {
+    font-family: "Anjoman";
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
   }
 }/*# sourceMappingURL=mobile-style.css.map */
