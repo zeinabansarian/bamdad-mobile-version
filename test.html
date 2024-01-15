@@ -1,0 +1,148 @@
+<basis core="dbsource" source="basiscore" mid="1" lid="1" name="list" catid="201964">
+    <member name="products" type="list" link="product.bc" perpage="4" pageno="[##cms.query.pageno|(1)##]" size="513x317"
+        propertyid="7245" />
+    <member name="paging" type="list" request="paging" count="1" parentname="products" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1">
+    <member name="menu_link" type="tree" request="cat" parentid="201964" />
+</basis>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[##cms.seo.title##]</title>
+    <meta name="description" content="[##cms.seo.description##]" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body class="overflow">
+    <main class="blog-lists">
+
+
+        
+        <section id="pagination">
+            <div class="pagination">
+                <div class="num__btns">
+
+
+
+                    <basis core="group" if="'[##list.paging.rownumber##]'<>'1' and '[##list.products.RowNumber##]'<>''">
+
+
+                        <basis core="group" if="'[##db.menu_link.link##]'<> ''">
+
+
+                            <basis core="print" datamembername="list.paging">
+                                <face filter="@sta='pre'">
+                                    <li class="page-item">
+                                        <a class="num__btn faNam" href="?pageno=@page">
+                                            <button id="prevPage">
+                                                <svg width="9" height="14" viewBox="0 0 9 14" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.72727 1.36365L2 7.09092L7.72727 12.8182"
+                                                        stroke="#104777" stroke-width="1.90909" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    </li>
+                                </face>
+                            </basis>
+
+
+                            <basis core="print" datamembername="list.paging">
+                                <face filter="@sta='no' and @page <> 0">
+                                    <li class="page-item" id="@page">
+                                        <a class="num__btn faNam" href="?pageno=@page">@page</a>
+                                    </li>
+                                </face>
+                            </basis>
+
+
+                            <basis core="print" datamembername="list.paging">
+                                <face filter="@sta='nex'">
+                                    <li class="page-item">
+                                        <a class="num__btn faNam" href="?pageno=@page"><button id="nextPage">
+                                                <svg width="9" height="14" viewBox="0 0 9 14" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.31765 12.8182L7.04492 7.0909L1.31765 1.36363"
+                                                        stroke="#104777" stroke-width="1.90909" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    </li>
+                                </face>
+                            </basis>
+
+
+                        </basis>
+
+                        <basis core="group" if="'[##db.menu_link.link##]'=''">
+                            <basis core="print" datamembername="list.paging">
+                                <face filter="@sta='pre'">
+                                    <li class="page-item">
+                                        <a class="num__btn faNam" href="?pageno=@page">
+                                            <button id="prevPage">
+                                                <svg width="9" height="14" viewBox="0 0 9 14" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.72727 1.36365L2 7.09092L7.72727 12.8182"
+                                                        stroke="#104777" stroke-width="1.90909" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    </li>
+                                </face>
+                            </basis>
+                            <basis core="print" datamembername="list.paging">
+                                <face filter="@sta='no' and @page <> 0">
+                                    <li class="page-item" id="@page">
+                                        <a class="num__btn faNam" href="?pageno=@page">@page</a>
+                                    </li>
+                                </face>
+                            </basis>
+                            <basis core="print" datamembername="list.paging">
+                                <face filter="@sta='nex'">
+                                    <li class="page-item">
+                                        <a class="num__btn faNam" href="?pageno=@page">
+                                            <button id="nextPage">
+                                                <svg width="9" height="14" viewBox="0 0 9 14" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.31765 12.8182L7.04492 7.0909L1.31765 1.36363"
+                                                        stroke="#104777" stroke-width="1.90909" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    </li>
+                                </face>
+                            </basis>
+                        </basis>
+                    </basis>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./js/gsap.min.js"></script>
+    <script src="./js/jQuery.min.js"></script>
+    <script src="./js/blog-lists.js"></script>
+</body>
+<script>
+    $(function () {
+        var current = window.location.search;
+        $(".num__btn").each(function () {
+            var $this = $(this);
+
+            if ($this.attr("href").indexOf(current) !== -1) {
+                $this.addClass("num__btn--active");
+                $this.siblings().removeClass("num__btn--active");
+            }
+        });
+    });
+    console.log(window.location.search);
+
+    $("#1").addClass("num__btn--active");
+</script>
+
+</html>

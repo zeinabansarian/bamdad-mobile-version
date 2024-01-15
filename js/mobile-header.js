@@ -16,6 +16,7 @@ $(".openMenu > ul > li >a").click(function(e) {
 
 
 $(".openMegaMenu>ul>li").click(function(e) {
+
     e.preventDefault();
     console.log(this);
     if ($(this).find('.closeUnderMenu').hasClass("openUnderMenu")) {
@@ -27,4 +28,10 @@ $(".openMegaMenu>ul>li").click(function(e) {
     }
   });
   
+let openMenu = document.querySelector(".openMenu")
+let manuBar = document.querySelector('.manuBar');
+    manuBar.addEventListener('click' , ()=>{
 
+        manuBar.classList.toggle("openBar")
+        openMenu.classList.toggle("closeMenu")
+})

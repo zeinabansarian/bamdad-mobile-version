@@ -357,6 +357,8 @@ table {
     width: -webkit-fill-available;
     align-items: center;
     padding: 20px 30px;
+    position: relative;
+    z-index: 100;
     .manuBar {
       span {
         display: block;
@@ -388,6 +390,13 @@ table {
     }
   }
   .openMenu {
+    transform: translateY(-200%);
+    transition: 0.5s ease-in-out;
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 100;
+
     .searchForm {
       background-color: black;
       width: 100%;
@@ -507,6 +516,10 @@ table {
       justify-content: center;
       column-gap: 17px;
     }
+  }
+  .closeMenu{
+    transform: translateY(0%);
+    transition: 0.5s ease-in-out;
   }
   .banner {
     position: relative;
@@ -660,5 +673,135 @@ color: #121212;
         }
       }
     }
+  }
+  .blog{
+    padding-bottom: 75px;
+    .blogSection{
+      padding: 50px 30px 0 30px;
+      .blogItem {
+        margin-bottom: 50px;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        .imgSec {
+          position: relative;
+          img {
+            width: 100%;
+            transition: 0.5s ease-in-out;
+          }
+          .overflowH {
+            overflow: hidden;
+          }
+          .blgDate {
+            position: absolute;
+            left: 0;
+            bottom: -34px;
+            direction: rtl;
+            & > p {
+              display: none;
+            }
+            .blogDateTop {
+              padding: 9px 6px;
+              background-color: white;
+              text-align: center;
+
+              span {
+                font-family: "IranSansFaNum";
+                font-weight: 400;
+                font-size: 15px;
+                direction: rtl;
+                line-height: 15px;
+              }
+            }
+
+            .blogDateBtm {
+              text-align: center;
+              padding: 9px 6px;
+              background-color: #0081b3;
+
+              span {
+                font-family: "IranSansFaNum";
+                font-weight: 400;
+                font-size: 15px;
+                direction: rtl;
+                line-height: 15px;
+                color: white;
+              }
+            }
+          }
+        }
+
+        .RelatedBlogDetail {
+          position: relative;
+          text-align: right;
+          a {
+            text-decoration: none;
+            color: black;
+
+            h6 {
+              direction: rtl;
+              font-family: "Anjoman";
+              font-size: 13px;
+              font-weight: 700;
+              line-height: 21px;
+              padding: 11px 0 7px 0;
+              margin-top: 7px;
+
+              display: inline-block;
+
+              background-image: linear-gradient(to left, black, black);
+              background-position: 100% 100%;
+              background-repeat: no-repeat;
+              text-align: right;
+              background-size: 0 2px;
+              -webkit-transition: 0.3s, background-size 0.8s;
+              transition: all 0.3s, background-size 0.8s;
+            }
+          }
+
+          p {
+            text-align: justify;
+            font-size: 12px;
+            font-family: "IranSansFaNum";
+            font-weight: 300;
+            width: fit-content;
+            line-height: 17px;
+            direction: rtl;
+          }
+        }
+      }
+      .blogItem:hover {
+        .RelatedBlogDetail {
+          a {
+            h6 {
+              background-size: 100% 2px;
+            }
+          }
+        }
+        .imgSec {
+          img {
+            transform: scale(1.04);
+            transition: 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+    .paging{
+     display: flex;
+     justify-content: center;
+      a{
+        text-decoration: none;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #888888;
+        height: 40px;
+      }
+      a.active{
+        background-color: #0081B3;
+        color: white;
+      }
+    }
+
   }
 }
